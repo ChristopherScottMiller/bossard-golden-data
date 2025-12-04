@@ -1,0 +1,7 @@
+pandas
+python-dotenv
+jinja2
+duckdb
+pandera
+pytest
+rich
