@@ -5,7 +5,7 @@ from typing import Literal
 
 import pandas as pd
 
-from .config import BASE_DIR, DATA_INTERIM
+from golden_data.config import BASE_DIR, DATA_INTERIM
 
 # Where mapping tables will live
 MAPPINGS_DIR = BASE_DIR / "mappings"
@@ -14,11 +14,28 @@ MAPPINGS_DIR.mkdir(parents=True, exist_ok=True)
 
 def get_mapping_path(field_name: str) -> Path:
     """
-    Return the path to the mapping CSV for a given field
-    (e.g., 'Material' -> mappings/material_mapping.csv).
+    Return the path to the mapping CSV for a given field name.
+
+    Example:
+        get_mapping_path("Material") -> mappings/material_mapping.csv
+
+    The function:
+    - Lowercases the field_name
+    - Replaces spaces with underscores
+    - Appends '_mapping.csv'
+    - Resolves relative to MAPPINGS_DIR
     """
     safe = field_name.lower().replace(" ", "_")
-    return MAPPINGS_DIR / f"{safe}_mapping.csv"
+    path = MAPPINGS_DIR / f"{safe}_mapping.csv"
+
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Mapping file not found: {path}\n"
+            f"Expected location: {MAPPINGS_DIR}\n"
+            f"Expected filename: {safe}_mapping.csv"
+        )
+
+    return path
 
 
 def create_mapping_template_from_top_values(

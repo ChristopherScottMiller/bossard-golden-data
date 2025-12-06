@@ -11,6 +11,7 @@ load_dotenv(BASE_DIR / ".env")
 DATA_RAW = BASE_DIR / 'data' / 'raw'
 DATA_INTERIM = BASE_DIR / 'data' / 'interim'
 DATA_PROCESSED = BASE_DIR / 'data' / 'processed'
+MAPPINGS_DIR = BASE_DIR / 'mappings' / ''
 
 DATA_FILENAME = os.getenv('DATA_FILENAME', 'bossard_raw.csv')
 

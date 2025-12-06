@@ -7,7 +7,7 @@ import pandas as pd
 from rich.console import Console
 from rich.table import Table
 
-from .config import get_raw_data_path, DATA_INTERIM
+from golden_data.config import get_raw_data_path, DATA_INTERIM
 
 console = Console()
 

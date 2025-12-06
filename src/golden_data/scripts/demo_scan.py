@@ -1,6 +1,6 @@
-from golden_data.custom_field_scan import scan_custom_fields
+from golden_data.analysis.custom_field_scan import scan_custom_fields
 from golden_data.markdown_utils import df_to_markdown
-from golden_data.ai_taxonomist import analyze_custom_fields
+from golden_data.ai.ai_taxonomist import analyze_custom_fields
 
 # 1. Scan up to 5000 product rows
 cf_summary = scan_custom_fields(max_rows=5000)
