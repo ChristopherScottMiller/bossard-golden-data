@@ -1,7 +1,8 @@
-pandas
-python-dotenv
+pandas~=2.3.3
+python-dotenv~=1.2.1
 jinja2
-duckdb
+duckdb~=1.4.2
 pandera
 pytest
-rich
+rich~=14.2.0
+openai
